@@ -32,7 +32,7 @@ export default function Hero() {
 
         <aside className="qh-hero__panel" aria-label="Program stats">
           <div className="qh-hero__stat">
-            <div className="qh-icon" aria-hidden="true">🎯</div>
+            <div className="qh-icon qh-icon--primary" aria-hidden="true">🎯</div>
             <div>
               <div className="qh-highlight__title">Job-ready training</div>
               <div className="qh-highlight__desc">Industry-curated curriculum to ramp talent faster.</div>

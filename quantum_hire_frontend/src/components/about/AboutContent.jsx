@@ -19,7 +19,7 @@ export default function AboutContent() {
           <SectionHeader eyebrow="Our mission" title="Building future-ready talent at scale" subtitle="Quantum Hire connects businesses with high-potential freshers and interns through training, internships, and performance incentives." />
           <div className="qh-grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <article className="qh-card">
-              <div className="qh-icon" aria-hidden="true">🧭</div>
+              <div className="qh-icon qh-icon--primary" aria-hidden="true">🧭</div>
               <h3 className="qh-value__title">Our vision</h3>
               <p className="qh-value__desc">A world where early-career talent ramps quickly, delivers meaningful impact, and grows into tomorrow’s leaders.</p>
             </article>

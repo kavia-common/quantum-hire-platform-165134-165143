@@ -210,6 +210,7 @@ export default function Navbar() {
         .qh-nav__link:hover { color: var(--qh-accent); background: rgba(44,78,126,0.06); text-decoration: underline; }
         .qh-nav__link.is-active { color: var(--qh-accent); background: rgba(44,78,126,0.10); }
 
+        /* Primary CTA remains orange */
         .qh-nav__cta {
           text-decoration: none; font-weight: 700;
           background: var(--qh-primary); color: var(--qh-text-on-primary);

@@ -39,7 +39,7 @@ export default function ProgramHighlights() {
             </article>
           ))}
           <article className="qh-card" aria-label="Placement support">
-            <div className="qh-icon" aria-hidden="true">🚀</div>
+            <div className="qh-icon qh-icon--primary" aria-hidden="true">🚀</div>
             <h3 className="qh-highlight__title">Placement support</h3>
             <p className="qh-highlight__desc">Interview prep, resume polish, and employer connects to convert talent to hires.</p>
           </article>

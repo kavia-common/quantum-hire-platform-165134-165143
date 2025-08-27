@@ -29,9 +29,9 @@ export default function ValueProps() {
         <span className="qh-eyebrow">Why companies choose us</span>
         <h2 id="values-title" className="qh-title">Value built for impact</h2>
         <div className="qh-grid qh-values__grid">
-          {values.map((v) => (
+          {values.map((v, idx) => (
             <article key={v.title} className="qh-card">
-              <div className="qh-icon" aria-hidden="true">{v.icon}</div>
+              <div className={`qh-icon ${idx === 0 ? 'qh-icon--primary' : ''}`} aria-hidden="true">{v.icon}</div>
               <h3 className="qh-value__title">{v.title}</h3>
               <p className="qh-value__desc">{v.desc}</p>
             </article>
