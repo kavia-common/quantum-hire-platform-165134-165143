@@ -1,47 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+
+import Home from './pages/Home';
+import ForCompanies from './pages/ForCompanies';
+import ForFreshers from './pages/ForFreshers';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 // PUBLIC_INTERFACE
 function App() {
+  /** App root with theme toggle and route layout. */
   const [theme, setTheme] = useState('light');
 
-  // Effect to apply theme to document element
+  // Apply theme attribute to document for CSS variables
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
   // PUBLIC_INTERFACE
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
+      <Router>
+        <Navbar />
+        <button
+          className="theme-toggle"
           onClick={toggleTheme}
           aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          style={{ position: 'fixed', zIndex: 1000 }}
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/for-companies" element={<ForCompanies />} />
+          <Route path="/for-freshers" element={<ForFreshers />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
+        <Footer />
+      </Router>
     </div>
   );
 }

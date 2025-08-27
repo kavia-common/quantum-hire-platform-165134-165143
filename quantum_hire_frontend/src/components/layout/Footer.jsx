@@ -1,0 +1,92 @@
+import React from 'react';
+
+// PUBLIC_INTERFACE
+export default function Footer() {
+  /** Footer with brand styling and accessibility.
+   * Uses:
+   *  - Primary: #0052CC
+   *  - Secondary: #FFFFFF
+   *  - Accent: #9AA7B0
+   */
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="qh-footer" role="contentinfo">
+      <div className="qh-container qh-footer__inner">
+        <div className="qh-footer__brand">
+          <div className="qh-footer__logo" aria-hidden="true">QH</div>
+          <div>
+            <div className="qh-footer__name">Quantum Hire</div>
+            <div className="qh-footer__tagline">Connecting companies with future-ready talent</div>
+          </div>
+        </div>
+
+        <nav className="qh-footer__nav" aria-label="Footer navigation">
+          <a className="qh-footer__link" href="/about">About</a>
+          <a className="qh-footer__link" href="/for-companies">For Companies</a>
+          <a className="qh-footer__link" href="/for-freshers">For Freshers</a>
+          <a className="qh-footer__link" href="/contact">Contact</a>
+        </nav>
+
+        <div className="qh-footer__copy">
+          © {year} Quantum Hire. All rights reserved.
+        </div>
+      </div>
+
+      <style>{`
+        :root {
+          --qh-primary: #0052CC;
+          --qh-secondary: #FFFFFF;
+          --qh-accent: #9AA7B0;
+          --qh-text: #0B1F35;
+        }
+
+        .qh-container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+        .qh-footer {
+          background: linear-gradient(180deg, #F7F9FC 0%, #FFFFFF 100%);
+          border-top: 1px solid rgba(0,0,0,0.06);
+          color: var(--qh-text);
+          margin-top: 48px;
+        }
+        .qh-footer__inner {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 16px;
+          padding: 28px 0;
+        }
+
+        .qh-footer__brand { display: flex; gap: 12px; align-items: center; }
+        .qh-footer__logo {
+          width: 36px; height: 36px; border-radius: 8px;
+          background: var(--qh-primary); color: #fff; display: grid; place-items: center; font-weight: 800;
+        }
+        .qh-footer__name { font-weight: 700; }
+        .qh-footer__tagline { font-size: 14px; color: var(--qh-accent); }
+
+        .qh-footer__nav { display: flex; align-items: center; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
+        .qh-footer__link {
+          color: var(--qh-text);
+          text-decoration: none;
+          font-weight: 600;
+          padding: 8px 10px;
+          border-radius: 8px;
+        }
+        .qh-footer__link:hover { background: rgba(0,0,0,0.05); }
+
+        .qh-footer__copy {
+          grid-column: 1 / -1;
+          color: var(--qh-accent);
+          font-size: 14px;
+          border-top: 1px dashed rgba(0,0,0,0.06);
+          padding-top: 16px;
+        }
+
+        @media (max-width: 880px) {
+          .qh-footer__inner { grid-template-columns: 1fr; }
+          .qh-footer__nav { justify-content: flex-start; }
+        }
+      `}</style>
+    </footer>
+  );
+}
