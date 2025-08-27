@@ -9,10 +9,7 @@ export default function Navbar() {
    * - Accessible skip link and ARIA labels
    * - Responsive: collapses into a menu on small screens
    * - Keyboard navigation and focus management for the mobile menu
-   * Brand colors:
-   *   Primary: #0052CC (blue)
-   *   Secondary: #FFFFFF (white)
-   *   Accent: #9AA7B0 (muted gray-blue)
+   * Brand palette: orange/white/blue per new guidelines. Logo: mark only (no word text).
    */
   const [isOpen, setIsOpen] = useState(false);
   const [elevated, setElevated] = useState(false);
@@ -76,16 +73,21 @@ export default function Navbar() {
     <>
       <a href="#main" className="qh-skip-link">Skip to content</a>
       <header className={`qh-navbar ${elevated ? 'qh-navbar--elevated' : ''}`} role="banner">
-        <div className="qh-container" style={{ paddingTop: 12, paddingBottom: 12 }}>
+        <div className="qh-container" style={{ paddingTop: 10, paddingBottom: 10 }}>
           <div className="qh-navbar__inner">
             <div className="qh-brand">
-              <Link to="/" className="qh-brand__link" onClick={close} aria-label="Quantum Hire home">
+              <Link
+                to="/"
+                className="qh-brand__link"
+                onClick={close}
+                aria-label="Quantum Hire home — Q with rocket logo"
+              >
                 <img
                   src={quantumLogo}
-                  alt="Quantum Hire logo"
+                  alt="Stylized navy Q with an orange rocket arcing upward through it."
                   className="qh-brand__img"
-                  width="36"
-                  height="36"
+                  width="44"
+                  height="44"
                   decoding="async"
                 />
               </Link>
@@ -180,12 +182,12 @@ export default function Navbar() {
 
         .qh-navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 
-        .qh-brand__link { display: inline-flex; align-items: center; text-decoration: none; }
+        .qh-brand__link { display: inline-flex; align-items: center; text-decoration: none; padding: 6px; }
         .qh-brand__img {
-          width: 36px;
-          height: 36px;
+          width: 44px;
+          height: 44px;
           object-fit: contain;
-          border-radius: 8px;
+          border-radius: 10px;
           background: transparent;
           display: block;
         }
@@ -199,7 +201,7 @@ export default function Navbar() {
         }
 
         .qh-nav { display: flex; }
-        .qh-nav__list { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+        .qh-nav__list { display: flex; align-items: center; gap: 12px; list-style: none; margin: 0; padding: 0; }
         .qh-nav__link {
           text-decoration: none;
           color: var(--qh-text);
@@ -217,9 +219,7 @@ export default function Navbar() {
         .qh-nav__cta:hover { background: #E6891F; }
 
         /* Overlay for mobile menu */
-        .qh-nav-overlay {
-          display: none;
-        }
+        .qh-nav-overlay { display: none; }
 
         @media (max-width: 880px) {
           .qh-nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
@@ -230,7 +230,7 @@ export default function Navbar() {
             border-bottom: 1px solid rgba(0,0,0,0.06);
           }
           .qh-nav.is-open { display: block; }
-          .qh-nav__list { flex-direction: column; align-items: stretch; padding: 12px; }
+          .qh-nav__list { flex-direction: column; align-items: stretch; padding: 12px; gap: 8px; }
           .qh-nav__link, .qh-nav__cta { padding: 12px 14px; }
 
           .qh-nav-overlay {

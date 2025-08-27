@@ -5,6 +5,7 @@ import quantumLogo from '../../assets/quantum_logo.png';
 export default function Footer() {
   /** Footer with brand styling and accessibility.
    * Uses app-level CSS variables from App.css for consistent theming.
+   * Logo usage: mark only (no brand text), per new brand guidelines.
    */
   const year = new Date().getFullYear();
 
@@ -14,10 +15,10 @@ export default function Footer() {
         <div className="qh-footer__brand" aria-label="Site logo">
           <img
             src={quantumLogo}
-            alt="Quantum Hire logo"
+            alt="Stylized navy Q with an orange rocket arcing upward through it."
             className="qh-footer__logo-img"
-            width="36"
-            height="36"
+            width="40"
+            height="40"
             decoding="async"
           />
         </div>
@@ -43,17 +44,17 @@ export default function Footer() {
         }
         .qh-footer__inner {
           display: grid;
-          grid-template-columns: 1.2fr 1fr;
+          grid-template-columns: 1fr auto;
           gap: 16px;
-          padding: 28px 0;
+          padding: 24px 0;
           align-items: center;
         }
 
-        .qh-footer__brand { display: inline-flex; gap: 0; align-items: center; }
+        .qh-footer__brand { display: inline-flex; align-items: center; padding: 4px; }
         .qh-footer__logo-img {
-          width: 36px;
-          height: 36px;
-          border-radius: 8px;
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
           object-fit: contain;
           background: transparent;
           display: block;
@@ -77,7 +78,7 @@ export default function Footer() {
           color: var(--qh-accent);
           font-size: 14px;
           border-top: 1px dashed var(--border-color);
-          padding-top: 16px;
+          padding-top: 14px;
         }
 
         @media (max-width: 880px) {
