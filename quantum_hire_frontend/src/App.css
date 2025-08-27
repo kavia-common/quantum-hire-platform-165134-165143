@@ -1,16 +1,16 @@
 :root {
-  /* Updated Brand Tokens — Blue is primary, Orange is secondary/accent */
+  /* Brand Tokens — Blue is primary, Orange is secondary/accent */
   --brand-primary: #2C4E7E; /* Blue (primary CTAs, buttons, active states) */
-  --brand-navy: #0F345B;    /* Deep navy */
+  --brand-navy: #0F345B;    /* Deep navy for body text */
   --brand-white: #FFFFFF;   /* White */
-  --brand-accent: #F59A23;  /* Orange (secondary/accent) */
+  --brand-accent: #F59A23;  /* Orange (secondary/accent only) */
 
   /* Legacy alias mapping for compatibility with existing classes */
-  --qh-primary: var(--brand-primary);   /* Primary CTA bg now blue */
+  --qh-primary: var(--brand-primary);   /* Primary CTA/backgrounds are blue */
   --qh-secondary: var(--brand-white);
-  --qh-accent: var(--brand-accent);     /* Accent now orange for badges/icons */
+  --qh-accent: var(--brand-accent);     /* Accent (badges/icons/badges) */
   --qh-text: var(--brand-navy);
-  --qh-muted: #3B5B8F;                  /* lighter blue for meta text */
+  --qh-muted: #3B5B8F;                  /* lighter blue for secondary text */
   --qh-surface: #F7F9FC;
 
   /* Theme scales */
@@ -41,7 +41,7 @@
   --link-hover: #1E3C6A;
 
   /* Shadows for brand accents */
-  --shadow-primary: 0 8px 18px rgba(44,78,126,0.28);  /* primary shadow in blue */
+  --shadow-primary: 0 8px 18px rgba(44,78,126,0.28);    /* primary shadow in blue */
   --shadow-secondary: 0 6px 14px rgba(245,154,35,0.25); /* accent shadow in orange */
 }
 

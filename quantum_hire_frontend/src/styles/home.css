@@ -31,8 +31,8 @@
 .qh-card:hover {
   box-shadow: 0 10px 30px rgba(11,31,53,.08);
   transform: translateY(-2px);
-  /* subtle hint of brand without overusing orange */
-  border-color: color-mix(in srgb, #E6ECF2 70%, var(--brand-blue) 30%);
+  /* subtle hint of brand using blue primary */
+  border-color: color-mix(in srgb, #E6ECF2 70%, var(--brand-primary) 30%);
 }
 
 /* Icons: default to orange accent; use .qh-icon--primary for blue (primary action contexts) */
