@@ -1,5 +1,11 @@
 /* CSS Variables for Theme Management */
 :root {
+  /* Brand palette */
+  --qh-primary: #0052CC;
+  --qh-secondary: #FFFFFF;
+  --qh-accent: #9AA7B0;
+  --qh-text: #0B1F35;
+
   /* Light theme colors */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
