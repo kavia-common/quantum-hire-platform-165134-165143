@@ -1,16 +1,16 @@
 :root {
-  /* New Brand Tokens */
-  --brand-primary: #F59A23; /* Orange (primary CTAs only) */
+  /* Updated Brand Tokens — Blue is primary, Orange is secondary/accent */
+  --brand-primary: #2C4E7E; /* Blue (primary CTAs, buttons, active states) */
   --brand-navy: #0F345B;    /* Deep navy */
   --brand-white: #FFFFFF;   /* White */
-  --brand-blue: #2C4E7E;    /* Support blue (secondary, links, nav) */
+  --brand-accent: #F59A23;  /* Orange (secondary/accent) */
 
   /* Legacy alias mapping for compatibility with existing classes */
-  --qh-primary: var(--brand-primary);  /* Primary CTA bg */
+  --qh-primary: var(--brand-primary);   /* Primary CTA bg now blue */
   --qh-secondary: var(--brand-white);
-  --qh-accent: var(--brand-blue);      /* Secondary emphasis/link/nav highlight */
+  --qh-accent: var(--brand-accent);     /* Accent now orange for badges/icons */
   --qh-text: var(--brand-navy);
-  --qh-muted: #3B5B8F;                 /* lighter than support blue for meta text */
+  --qh-muted: #3B5B8F;                  /* lighter blue for meta text */
   --qh-surface: #F7F9FC;
 
   /* Theme scales */
@@ -29,20 +29,20 @@
   --border-color: #E6EBF2;
 
   /* Components */
-  --button-bg: var(--brand-primary);    /* Primary button bg */
+  --button-bg: var(--brand-primary);     /* Primary button bg (blue) */
   --button-text: var(--brand-white);
-  --button-outline: var(--brand-blue);  /* Secondary button outline/text */
+  --button-outline: var(--brand-primary);/* Secondary button outline/text (blue) */
 
   /* Focus ring (accessibility) */
   --focus: #1E90FF;
 
   /* Link tokens */
-  --link: var(--brand-blue);
+  --link: var(--brand-primary);
   --link-hover: #1E3C6A;
 
   /* Shadows for brand accents */
-  --shadow-primary: 0 8px 18px rgba(245,154,35,0.28);
-  --shadow-secondary: 0 6px 14px rgba(44,78,126,0.25);
+  --shadow-primary: 0 8px 18px rgba(44,78,126,0.28);  /* primary shadow in blue */
+  --shadow-secondary: 0 6px 14px rgba(245,154,35,0.25); /* accent shadow in orange */
 }
 
 [data-theme="dark"] {
@@ -52,7 +52,7 @@
   --text-primary: #eef2f7;
   --text-secondary: #9fb0c3;
   --border-color: #263042;
-  --button-bg: #E6891F; /* slightly darker orange for dark mode */
+  --button-bg: #1E3C6A; /* darker blue for dark mode primary */
   --button-text: #ffffff;
   --qh-surface: #0f141b;
   --qh-muted: #93a4b7;
@@ -115,7 +115,7 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
 .qh-section--tight { padding: 36px 0; }
 
 /* Typography */
-.qh-eyebrow { color: var(--qh-primary); font-weight: 800; letter-spacing: .08em; font-size: 12px; text-transform: uppercase; }
+.qh-eyebrow { color: var(--brand-primary); font-weight: 800; letter-spacing: .08em; font-size: 12px; text-transform: uppercase; }
 .qh-title { color: var(--text-primary); margin: 6px 0 10px; font-size: 30px; line-height: 1.2; }
 .qh-subtitle { color: var(--text-secondary); margin: 0 0 18px; font-size: 18px; }
 
@@ -137,15 +137,15 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
 .qh-icon {
   width: 40px; height: 40px; border-radius: 10px;
   display: grid; place-items: center; font-weight: 800;
-  color: #fff; background: var(--brand-primary);
-  box-shadow: 0 6px 16px rgba(245,154,35,.28);
+  color: #fff; background: var(--brand-accent); /* icons default to orange accent */
+  box-shadow: var(--shadow-secondary);
 }
 
 /* Buttons */
 .qh-btn { display: inline-block; padding: 12px 16px; border-radius: var(--radius); text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
 .qh-btn--primary { background: var(--button-bg); color: var(--button-text); box-shadow: var(--shadow-primary); }
-.qh-btn--primary:hover { background: #E6891F; }
-.qh-btn--secondary { background: transparent; color: var(--qh-accent); border: 1.5px solid var(--qh-accent); }
+.qh-btn--primary:hover { background: #1E3C6A; } /* darker blue on hover */
+.qh-btn--secondary { background: transparent; color: var(--button-outline); border: 1.5px solid var(--button-outline); }
 .qh-btn--secondary:hover { background: rgba(44,78,126,0.08); }
 
 /* Navbar theme toggle button (global) */

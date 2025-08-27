@@ -68,14 +68,14 @@ export default function Footer() {
           padding: 8px 10px;
           border-radius: 8px;
         }
-        .qh-footer__link:hover { color: var(--qh-accent); text-decoration: underline; background: rgba(44,78,126,0.06); }
+        .qh-footer__link:hover { color: var(--brand-primary); text-decoration: underline; background: rgba(44,78,126,0.06); }
         @media (prefers-color-scheme: dark) {
           .qh-footer__link:hover { background: rgba(255,255,255,0.06); }
         }
 
         .qh-footer__copy {
           grid-column: 1 / -1;
-          color: var(--qh-accent);
+          color: var(--brand-accent); /* orange as accent text */
           font-size: 14px;
           border-top: 1px dashed var(--border-color);
           padding-top: 14px;

@@ -64,7 +64,7 @@ export default function Contact() {
       />
       <div className="qh-container">
         <h1>Contact Us</h1>
-        <p style={{ color: 'var(--qh-accent)' }}>HR teams and companies can reach out via this form.</p>
+        <p style={{ color: 'var(--brand-primary)' }}>HR teams and companies can reach out via this form.</p>
 
         <div className="qh-card" style={{ marginTop: 12 }}>
           <form className="qh-form" onSubmit={onSubmit} aria-labelledby="contact-title" noValidate>
@@ -178,8 +178,8 @@ export default function Contact() {
 
       <style>{`
         :root {
-          --qh-primary: var(--brand-primary);
-          --qh-accent: var(--brand-blue);
+          --qh-primary: var(--brand-primary); /* blue */
+          --qh-accent: var(--brand-accent);   /* orange accent */
           --qh-text: var(--brand-navy);
         }
         .qh-container { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
@@ -196,18 +196,18 @@ export default function Contact() {
           border-color: #B00020;
           box-shadow: 0 0 0 3px rgba(176,0,32,0.10);
         }
-        /* Use accessible focus blue for fields */
-        input:focus, textarea:focus { border-color: var(--qh-accent); box-shadow: 0 0 0 3px rgba(44,78,126,0.22); }
+        /* Accessible focus for fields (blue ring) */
+        input:focus, textarea:focus { border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(44,78,126,0.22); }
 
         .qh-btn { display: inline-block; padding: 12px 16px; border-radius: 10px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
-        .qh-btn--primary { background: var(--qh-primary); color: #fff; box-shadow: 0 6px 14px rgba(245,154,35,0.28); }
+        .qh-btn--primary { background: var(--brand-primary); color: #fff; box-shadow: 0 6px 14px rgba(44,78,126,0.28); }
         .qh-btn--primary:disabled { opacity: 0.8; cursor: not-allowed; }
 
         .qh-error { color: #B00020; font-size: 14px; }
         .qh-status { margin-top: 10px; font-weight: 600; }
         .qh-status--success { color: #0B8A3A; }
         .qh-status--error { color: #B00020; }
-        .qh-status--loading { color: var(--qh-accent); }
+        .qh-status--loading { color: var(--brand-primary); }
       `}</style>
     </main>
   );

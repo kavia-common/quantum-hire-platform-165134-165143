@@ -66,7 +66,7 @@ export default function ForCompanies() {
       />
 
       <style>{`
-        :root { --qh-text: #0B1F35; --qh-accent: #9AA7B0; }
+        :root { --qh-text: var(--brand-navy); }
         .qh-container { max-width: 1120px; margin: 0 auto; padding: 24px 16px; }
       `}</style>
     </main>

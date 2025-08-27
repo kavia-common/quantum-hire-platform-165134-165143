@@ -1,8 +1,8 @@
 :root {
   /* Map to global brand tokens (from App.css) */
-  --qh-primary: var(--brand-primary);
+  --qh-primary: var(--brand-primary);   /* blue primary */
   --qh-secondary: var(--brand-white);
-  --qh-accent: var(--brand-blue);
+  --qh-accent: var(--brand-accent);     /* orange accent */
   --qh-text: var(--brand-navy);
   --qh-muted: #3B5B8F;
   --qh-surface: #F7F9FC;
@@ -13,7 +13,7 @@
 /* Utility */
 .qh-section { padding: 56px 0; }
 .qh-section--tight { padding: 36px 0; }
-/* Eyebrow keeps orange to subtly reinforce brand in headings */
+/* Eyebrow uses blue (primary) */
 .qh-eyebrow { color: var(--qh-primary); font-weight: 800; letter-spacing: .08em; font-size: 12px; text-transform: uppercase; }
 .qh-title { color: var(--qh-text); margin: 6px 0 10px; font-size: 30px; line-height: 1.2; }
 .qh-subtitle { color: var(--qh-muted); margin: 0 0 18px; font-size: 18px; }
@@ -35,20 +35,20 @@
   border-color: color-mix(in srgb, #E6ECF2 70%, var(--brand-blue) 30%);
 }
 
-/* Icons: default to blue; use .qh-icon--primary where a primary CTA-aligned icon is needed */
+/* Icons: default to orange accent; use .qh-icon--primary for blue (primary action contexts) */
 .qh-icon {
   width: 40px; height: 40px; border-radius: 10px;
   display: grid; place-items: center; font-weight: 800;
-  color: #fff; background: var(--brand-blue);
+  color: #fff; background: var(--brand-accent);
   box-shadow: var(--shadow-secondary);
 }
-.qh-icon--primary { background: var(--brand-primary); box-shadow: 0 6px 16px rgba(245,154,35,.28); }
+.qh-icon--primary { background: var(--brand-primary); box-shadow: var(--shadow-primary); }
 
 /* Buttons */
 .qh-btn { display: inline-block; padding: 12px 16px; border-radius: 10px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
 .qh-btn--primary { background: var(--brand-primary); color: #fff; box-shadow: var(--shadow-primary); }
-.qh-btn--primary:hover { background: #E6891F; }
-.qh-btn--secondary { background: transparent; color: var(--brand-blue); border: 1.5px solid var(--brand-blue); }
+.qh-btn--primary:hover { background: #1E3C6A; }
+.qh-btn--secondary { background: transparent; color: var(--brand-primary); border: 1.5px solid var(--brand-primary); }
 .qh-btn--secondary:hover { background: rgba(44,78,126,0.08); }
 
 /* Hero */
@@ -70,12 +70,12 @@
 .qh-badge--primary,
 .qh-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 10px; border-radius: 999px; background: rgba(245,154,35,0.12); color: var(--brand-primary); font-weight: 700; font-size: 13px;
+  padding: 6px 10px; border-radius: 999px; background: rgba(44,78,126,0.12); color: var(--brand-primary); font-weight: 700; font-size: 13px;
 }
-/* Blue badge for secondary contexts */
+/* Orange accent badge */
 .qh-badge--secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 10px; border-radius: 999px; background: rgba(44,78,126,0.12); color: var(--brand-blue); font-weight: 700; font-size: 13px;
+  padding: 6px 10px; border-radius: 999px; background: rgba(245,154,35,0.12); color: var(--brand-accent); font-weight: 700; font-size: 13px;
 }
 
 /* Program Highlights */

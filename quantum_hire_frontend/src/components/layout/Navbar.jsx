@@ -153,9 +153,9 @@ export default function Navbar() {
 
       <style>{`
         :root {
-          --qh-primary: var(--brand-primary);
+          --qh-primary: var(--brand-primary); /* blue */
           --qh-secondary: var(--brand-white);
-          --qh-accent: var(--brand-blue);
+          --qh-accent: var(--brand-accent);   /* orange accent */
           --qh-text: var(--brand-navy);
           --qh-text-on-primary: #FFFFFF;
           --qh-shadow: rgba(0,0,0,0.08);
@@ -207,17 +207,17 @@ export default function Navbar() {
           color: var(--qh-text);
           padding: 10px 12px; border-radius: 8px; font-weight: 600;
         }
-        .qh-nav__link:hover { color: var(--qh-accent); background: rgba(44,78,126,0.06); text-decoration: underline; }
-        .qh-nav__link.is-active { color: var(--qh-accent); background: rgba(44,78,126,0.10); }
+        .qh-nav__link:hover { color: var(--brand-primary); background: rgba(44,78,126,0.06); text-decoration: underline; }
+        .qh-nav__link.is-active { color: var(--brand-primary); background: rgba(44,78,126,0.10); }
 
-        /* Primary CTA remains orange */
+        /* Primary CTA is now blue; orange is secondary accent elsewhere */
         .qh-nav__cta {
           text-decoration: none; font-weight: 700;
-          background: var(--qh-primary); color: var(--qh-text-on-primary);
+          background: var(--brand-primary); color: var(--qh-text-on-primary);
           padding: 10px 14px; border-radius: 10px;
-          box-shadow: 0 6px 14px rgba(245,154,35,0.28);
+          box-shadow: 0 6px 14px rgba(44,78,126,0.28);
         }
-        .qh-nav__cta:hover { background: #E6891F; }
+        .qh-nav__cta:hover { background: #1E3C6A; }
 
         /* Overlay for mobile menu */
         .qh-nav-overlay { display: none; }

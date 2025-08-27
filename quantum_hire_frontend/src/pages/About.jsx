@@ -40,7 +40,7 @@ export default function About() {
       />
 
       <style>{`
-        :root { --qh-text: var(--brand-navy); --qh-accent: var(--brand-blue); }
+        :root { --qh-text: var(--brand-navy); --qh-accent: var(--brand-accent); }
         .qh-container { max-width: 1120px; margin: 0 auto; padding: 24px 16px; }
       `}</style>
     </main>
