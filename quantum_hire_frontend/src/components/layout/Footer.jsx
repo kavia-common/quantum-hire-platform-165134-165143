@@ -11,8 +11,7 @@ export default function Footer() {
   return (
     <footer className="qh-footer" role="contentinfo">
       <div className="qh-container qh-footer__inner">
-        <div className="qh-footer__brand">
-          {/* Replaced 'QH' text placeholder with actual logo image */}
+        <div className="qh-footer__brand" aria-label="Site logo">
           <img
             src={quantumLogo}
             alt="Quantum Hire logo"
@@ -21,10 +20,6 @@ export default function Footer() {
             height="36"
             decoding="async"
           />
-          <div>
-            <div className="qh-footer__name">Quantum Hire</div>
-            <div className="qh-footer__tagline">Connecting companies with future-ready talent</div>
-          </div>
         </div>
 
         <nav className="qh-footer__nav" aria-label="Footer navigation">
@@ -51,9 +46,10 @@ export default function Footer() {
           grid-template-columns: 1.2fr 1fr;
           gap: 16px;
           padding: 28px 0;
+          align-items: center;
         }
 
-        .qh-footer__brand { display: flex; gap: 12px; align-items: center; }
+        .qh-footer__brand { display: inline-flex; gap: 0; align-items: center; }
         .qh-footer__logo-img {
           width: 36px;
           height: 36px;
@@ -62,8 +58,6 @@ export default function Footer() {
           background: transparent;
           display: block;
         }
-        .qh-footer__name { font-weight: 700; color: var(--text-primary); }
-        .qh-footer__tagline { font-size: 14px; color: var(--qh-accent); }
 
         .qh-footer__nav { display: flex; align-items: center; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
         .qh-footer__link {
@@ -88,6 +82,7 @@ export default function Footer() {
 
         @media (max-width: 880px) {
           .qh-footer__inner { grid-template-columns: 1fr; }
+          .qh-footer__brand { margin-bottom: 6px; }
           .qh-footer__nav { justify-content: flex-start; }
         }
       `}</style>

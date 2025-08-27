@@ -88,7 +88,6 @@ export default function Navbar() {
                   height="36"
                   decoding="async"
                 />
-                <span className="qh-brand__name">Quantum Hire</span>
               </Link>
             </div>
 
@@ -181,15 +180,15 @@ export default function Navbar() {
 
         .qh-navbar__inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 
-        .qh-brand__link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .qh-brand__link { display: inline-flex; align-items: center; text-decoration: none; }
         .qh-brand__img {
           width: 36px;
           height: 36px;
           object-fit: contain;
           border-radius: 8px;
           background: transparent;
+          display: block;
         }
-        .qh-brand__name { color: var(--qh-text); font-weight: 700; font-size: 18px; }
 
         .qh-nav-toggle {
           display: none; width: 44px; height: 44px;
