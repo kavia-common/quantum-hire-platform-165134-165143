@@ -1,4 +1,5 @@
 import React from 'react';
+import quantumLogo from '../../assets/quantum_logo.png';
 
 // PUBLIC_INTERFACE
 export default function Footer() {
@@ -11,7 +12,15 @@ export default function Footer() {
     <footer className="qh-footer" role="contentinfo">
       <div className="qh-container qh-footer__inner">
         <div className="qh-footer__brand">
-          <div className="qh-footer__logo" aria-hidden="true">QH</div>
+          {/* Replaced 'QH' text placeholder with actual logo image */}
+          <img
+            src={quantumLogo}
+            alt="Quantum Hire logo"
+            className="qh-footer__logo-img"
+            width="36"
+            height="36"
+            decoding="async"
+          />
           <div>
             <div className="qh-footer__name">Quantum Hire</div>
             <div className="qh-footer__tagline">Connecting companies with future-ready talent</div>
@@ -45,9 +54,13 @@ export default function Footer() {
         }
 
         .qh-footer__brand { display: flex; gap: 12px; align-items: center; }
-        .qh-footer__logo {
-          width: 36px; height: 36px; border-radius: 8px;
-          background: var(--qh-primary); color: #fff; display: grid; place-items: center; font-weight: 800;
+        .qh-footer__logo-img {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          object-fit: contain;
+          background: transparent;
+          display: block;
         }
         .qh-footer__name { font-weight: 700; color: var(--text-primary); }
         .qh-footer__tagline { font-size: 14px; color: var(--qh-accent); }
