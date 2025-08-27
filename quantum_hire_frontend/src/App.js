@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
-import Home from './pages/Home';
-import ForCompanies from './pages/ForCompanies';
-import ForFreshers from './pages/ForFreshers';
-import About from './pages/About';
-import Contact from './pages/Contact';
+// Lazy-loaded route components to enable route-based code splitting
+const Home = lazy(() => import('./pages/Home'));
+const ForCompanies = lazy(() => import('./pages/ForCompanies'));
+const ForFreshers = lazy(() => import('./pages/ForFreshers'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+
+// Lightweight fallback UI shown during lazy chunk loading
+function RouteFallback() {
+  return (
+    <div role="status" aria-live="polite" style={{ padding: 24 }}>
+      Loading…
+    </div>
+  );
+}
 
 // PUBLIC_INTERFACE
 function App() {
@@ -39,13 +49,15 @@ function App() {
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/for-companies" element={<ForCompanies />} />
-          <Route path="/for-freshers" element={<ForFreshers />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/for-companies" element={<ForCompanies />} />
+            <Route path="/for-freshers" element={<ForFreshers />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </Router>
