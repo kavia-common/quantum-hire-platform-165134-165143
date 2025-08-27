@@ -2,6 +2,7 @@ import React from 'react';
 import AboutContent from '../components/about/AboutContent';
 import Faq from '../components/common/Faq';
 import CTASection from '../components/common/CTASection';
+import SEO from '../components/seo/SEO';
 
 // PUBLIC_INTERFACE
 export default function About() {
@@ -13,6 +14,11 @@ export default function About() {
 
   return (
     <main id="main" className="qh-page" aria-label="About Quantum Hire">
+      <SEO
+        title="About"
+        description="Learn about Quantum Hire’s mission to connect companies with future-ready talent through training, internships, bonuses, and placement support."
+        path="/about"
+      />
       <section className="qh-section" aria-labelledby="about-title">
         <div className="qh-container">
           <span className="qh-eyebrow">About</span>

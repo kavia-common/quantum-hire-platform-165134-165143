@@ -5,12 +5,18 @@ import ProgramHighlights from '../components/home/ProgramHighlights';
 import ValueProps from '../components/home/ValueProps';
 import TrustSignals from '../components/home/TrustSignals';
 import CTASection from '../components/common/CTASection';
+import SEO from '../components/seo/SEO';
 
 // PUBLIC_INTERFACE
 export default function Home() {
   /** Home page composed of hero, highlights, value props, trust signals, and CTAs. */
   return (
     <main id="main" className="qh-page" aria-label="Homepage">
+      <SEO
+        title="Home"
+        description="Quantum Hire connects companies with pre-vetted freshers and interns through training, internships, bonuses, and placement support."
+        path="/"
+      />
       <Hero />
       <ProgramHighlights />
       <ValueProps />

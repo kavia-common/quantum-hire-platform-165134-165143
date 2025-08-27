@@ -3,6 +3,7 @@ import ProgramPath from '../components/common/ProgramPath';
 import HowItWorks from '../components/common/HowItWorks';
 import Faq from '../components/common/Faq';
 import CTASection from '../components/common/CTASection';
+import SEO from '../components/seo/SEO';
 
 // PUBLIC_INTERFACE
 export default function ForFreshers() {
@@ -27,6 +28,11 @@ export default function ForFreshers() {
 
   return (
     <main id="main" className="qh-page" aria-label="For Freshers">
+      <SEO
+        title="For Freshers"
+        description="Kickstart your tech career with Quantum Hire — hands-on training, real internships, bonuses for top performers, and placement support."
+        path="/for-freshers"
+      />
       <section className="qh-section" aria-labelledby="ff-title">
         <div className="qh-container">
           <span className="qh-eyebrow">For freshers</span>

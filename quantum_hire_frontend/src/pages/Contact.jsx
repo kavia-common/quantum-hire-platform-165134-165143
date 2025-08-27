@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Faq from '../components/common/Faq';
 import { submitContact, validateContactPayload } from '../services/contactService';
+import SEO from '../components/seo/SEO';
 
 // PUBLIC_INTERFACE
 export default function Contact() {
@@ -56,6 +57,11 @@ export default function Contact() {
 
   return (
     <main id="main" className="qh-page">
+      <SEO
+        title="Contact"
+        description="Contact Quantum Hire — HR teams and companies can reach out to start building a reliable fresher pipeline."
+        path="/contact"
+      />
       <div className="qh-container">
         <h1>Contact Us</h1>
         <p style={{ color: 'var(--qh-accent)' }}>HR teams and companies can reach out via this form.</p>

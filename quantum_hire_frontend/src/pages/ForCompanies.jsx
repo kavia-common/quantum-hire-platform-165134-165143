@@ -3,6 +3,7 @@ import HowItWorks from '../components/common/HowItWorks';
 import ProgramPath from '../components/common/ProgramPath';
 import Faq from '../components/common/Faq';
 import CTASection from '../components/common/CTASection';
+import SEO from '../components/seo/SEO';
 
 // PUBLIC_INTERFACE
 export default function ForCompanies() {
@@ -27,6 +28,11 @@ export default function ForCompanies() {
 
   return (
     <main id="main" className="qh-page" aria-label="For Companies">
+      <SEO
+        title="For Companies"
+        description="Build a reliable fresher pipeline with Quantum Hire — discover, train, and convert top freshers with internships and measurable outcomes."
+        path="/for-companies"
+      />
       <section className="qh-section" aria-labelledby="fc-title">
         <div className="qh-container">
           <span className="qh-eyebrow">For companies</span>
