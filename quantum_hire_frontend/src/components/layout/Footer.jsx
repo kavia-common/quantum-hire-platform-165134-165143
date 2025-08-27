@@ -67,7 +67,7 @@ export default function Footer() {
           padding: 8px 10px;
           border-radius: 8px;
         }
-        .qh-footer__link:hover { background: rgba(0,0,0,0.05); }
+        .qh-footer__link:hover { color: var(--qh-accent); text-decoration: underline; background: rgba(44,78,126,0.06); }
         @media (prefers-color-scheme: dark) {
           .qh-footer__link:hover { background: rgba(255,255,255,0.06); }
         }

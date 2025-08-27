@@ -151,10 +151,10 @@ export default function Navbar() {
 
       <style>{`
         :root {
-          --qh-primary: #0052CC;
-          --qh-secondary: #FFFFFF;
-          --qh-accent: #9AA7B0;
-          --qh-text: #0B1F35;
+          --qh-primary: var(--brand-primary);
+          --qh-secondary: var(--brand-white);
+          --qh-accent: var(--brand-blue);
+          --qh-text: var(--brand-navy);
           --qh-text-on-primary: #FFFFFF;
           --qh-shadow: rgba(0,0,0,0.08);
         }
@@ -205,16 +205,16 @@ export default function Navbar() {
           color: var(--qh-text);
           padding: 10px 12px; border-radius: 8px; font-weight: 600;
         }
-        .qh-nav__link:hover { background: rgba(0,0,0,0.04); }
-        .qh-nav__link.is-active { color: var(--qh-primary); background: rgba(0,82,204,0.10); }
+        .qh-nav__link:hover { color: var(--qh-accent); background: rgba(44,78,126,0.06); text-decoration: underline; }
+        .qh-nav__link.is-active { color: var(--qh-accent); background: rgba(44,78,126,0.10); }
 
         .qh-nav__cta {
           text-decoration: none; font-weight: 700;
           background: var(--qh-primary); color: var(--qh-text-on-primary);
           padding: 10px 14px; border-radius: 10px;
-          box-shadow: 0 6px 14px rgba(0,82,204,0.25);
+          box-shadow: 0 6px 14px rgba(245,154,35,0.28);
         }
-        .qh-nav__cta:hover { filter: brightness(0.96); }
+        .qh-nav__cta:hover { background: #E6891F; }
 
         /* Overlay for mobile menu */
         .qh-nav-overlay {

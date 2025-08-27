@@ -178,9 +178,9 @@ export default function Contact() {
 
       <style>{`
         :root {
-          --qh-primary: #0052CC;
-          --qh-accent: #9AA7B0;
-          --qh-text: #0B1F35;
+          --qh-primary: var(--brand-primary);
+          --qh-accent: var(--brand-blue);
+          --qh-text: var(--brand-navy);
         }
         .qh-container { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
         h1 { color: var(--qh-text); margin-bottom: 8px; }
@@ -196,10 +196,10 @@ export default function Contact() {
           border-color: #B00020;
           box-shadow: 0 0 0 3px rgba(176,0,32,0.10);
         }
-        input:focus, textarea:focus { border-color: var(--qh-primary); box-shadow: 0 0 0 3px rgba(0,82,204,0.15); }
+        input:focus, textarea:focus { border-color: var(--qh-primary); box-shadow: 0 0 0 3px rgba(245,154,35,0.25); }
 
         .qh-btn { display: inline-block; padding: 12px 16px; border-radius: 10px; text-decoration: none; font-weight: 700; border: none; cursor: pointer; }
-        .qh-btn--primary { background: var(--qh-primary); color: #fff; box-shadow: 0 6px 14px rgba(0,82,204,0.25); }
+        .qh-btn--primary { background: var(--qh-primary); color: #fff; box-shadow: 0 6px 14px rgba(245,154,35,0.28); }
         .qh-btn--primary:disabled { opacity: 0.8; cursor: not-allowed; }
 
         .qh-error { color: #B00020; font-size: 14px; }
