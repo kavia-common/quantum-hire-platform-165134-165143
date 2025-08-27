@@ -3,10 +3,7 @@ import React from 'react';
 // PUBLIC_INTERFACE
 export default function Footer() {
   /** Footer with brand styling and accessibility.
-   * Uses:
-   *  - Primary: #0052CC
-   *  - Secondary: #FFFFFF
-   *  - Accent: #9AA7B0
+   * Uses app-level CSS variables from App.css for consistent theming.
    */
   const year = new Date().getFullYear();
 
@@ -34,19 +31,10 @@ export default function Footer() {
       </div>
 
       <style>{`
-        :root {
-          --qh-primary: #0052CC;
-          --qh-secondary: #FFFFFF;
-          --qh-accent: #9AA7B0;
-          --qh-text: #0B1F35;
-        }
-
-        .qh-container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-
         .qh-footer {
-          background: linear-gradient(180deg, #F7F9FC 0%, #FFFFFF 100%);
-          border-top: 1px solid rgba(0,0,0,0.06);
-          color: var(--qh-text);
+          background: linear-gradient(180deg, var(--qh-surface) 0%, var(--bg-primary) 100%);
+          border-top: 1px solid var(--border-color);
+          color: var(--text-primary);
           margin-top: 48px;
         }
         .qh-footer__inner {
@@ -61,24 +49,27 @@ export default function Footer() {
           width: 36px; height: 36px; border-radius: 8px;
           background: var(--qh-primary); color: #fff; display: grid; place-items: center; font-weight: 800;
         }
-        .qh-footer__name { font-weight: 700; }
+        .qh-footer__name { font-weight: 700; color: var(--text-primary); }
         .qh-footer__tagline { font-size: 14px; color: var(--qh-accent); }
 
         .qh-footer__nav { display: flex; align-items: center; gap: 12px; justify-content: flex-end; flex-wrap: wrap; }
         .qh-footer__link {
-          color: var(--qh-text);
+          color: var(--text-primary);
           text-decoration: none;
           font-weight: 600;
           padding: 8px 10px;
           border-radius: 8px;
         }
         .qh-footer__link:hover { background: rgba(0,0,0,0.05); }
+        @media (prefers-color-scheme: dark) {
+          .qh-footer__link:hover { background: rgba(255,255,255,0.06); }
+        }
 
         .qh-footer__copy {
           grid-column: 1 / -1;
           color: var(--qh-accent);
           font-size: 14px;
-          border-top: 1px dashed rgba(0,0,0,0.06);
+          border-top: 1px dashed var(--border-color);
           padding-top: 16px;
         }
 

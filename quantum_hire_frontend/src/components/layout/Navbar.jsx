@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
@@ -7,6 +7,7 @@ export default function Navbar() {
    * - Sticky top behavior with subtle shadow on scroll
    * - Accessible skip link and ARIA labels
    * - Responsive: collapses into a menu on small screens
+   * - Keyboard navigation and focus management for the mobile menu
    * Brand colors:
    *   Primary: #0052CC (blue)
    *   Secondary: #FFFFFF (white)
@@ -14,12 +15,58 @@ export default function Navbar() {
    */
   const [isOpen, setIsOpen] = useState(false);
   const [elevated, setElevated] = useState(false);
+  const menuRef = useRef(null);
+  const toggleBtnRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setElevated(window.scrollY > 4);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close on escape
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+        toggleBtnRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
+  // Trap focus inside mobile nav when open
+  useEffect(() => {
+    if (!isOpen) return;
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const focusable = menu.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    const handleTab = (e) => {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleTab);
+    // focus first link when opened
+    first?.focus();
+
+    return () => document.removeEventListener('keydown', handleTab);
+  }, [isOpen]);
 
   const toggle = () => setIsOpen((o) => !o);
   const close = () => setIsOpen(false);
@@ -28,7 +75,7 @@ export default function Navbar() {
     <>
       <a href="#main" className="qh-skip-link">Skip to content</a>
       <header className={`qh-navbar ${elevated ? 'qh-navbar--elevated' : ''}`} role="banner">
-        <div className="qh-container">
+        <div className="qh-container" style={{ paddingTop: 12, paddingBottom: 12 }}>
           <div className="qh-navbar__inner">
             <div className="qh-brand">
               <Link to="/" className="qh-brand__link" onClick={close} aria-label="Quantum Hire home">
@@ -38,18 +85,25 @@ export default function Navbar() {
             </div>
 
             <button
+              ref={toggleBtnRef}
               className="qh-nav-toggle"
               onClick={toggle}
               aria-expanded={isOpen}
               aria-controls="qh-primary-nav"
-              aria-label="Toggle navigation"
+              aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
             >
               <span className="qh-nav-toggle__bar" />
               <span className="qh-nav-toggle__bar" />
               <span className="qh-nav-toggle__bar" />
             </button>
 
-            <nav id="qh-primary-nav" className={`qh-nav ${isOpen ? 'is-open' : ''}`} aria-label="Primary navigation">
+            <nav
+              id="qh-primary-nav"
+              ref={menuRef}
+              className={`qh-nav ${isOpen ? 'is-open' : ''}`}
+              aria-label="Primary navigation"
+              aria-hidden={!isOpen}
+            >
               <ul className="qh-nav__list" role="menubar">
                 <li role="none">
                   <NavLink to="/" end role="menuitem" className={({isActive}) => 'qh-nav__link' + (isActive ? ' is-active' : '')} onClick={close}>
@@ -80,6 +134,12 @@ export default function Navbar() {
             </nav>
           </div>
         </div>
+        {/* overlay on small screens when nav is open */}
+        <div
+          className={`qh-nav-overlay ${isOpen ? 'is-open' : ''}`}
+          aria-hidden="true"
+          onClick={close}
+        />
       </header>
 
       <style>{`
@@ -149,12 +209,34 @@ export default function Navbar() {
         }
         .qh-nav__cta:hover { filter: brightness(0.96); }
 
+        /* Overlay for mobile menu */
+        .qh-nav-overlay {
+          display: none;
+        }
+
         @media (max-width: 880px) {
           .qh-nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
-          .qh-nav { position: absolute; top: 64px; left: 0; right: 0; background: var(--qh-secondary); display: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+          .qh-nav {
+            position: absolute; top: 64px; left: 0; right: 0;
+            background: var(--qh-secondary);
+            display: none;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+          }
           .qh-nav.is-open { display: block; }
           .qh-nav__list { flex-direction: column; align-items: stretch; padding: 12px; }
           .qh-nav__link, .qh-nav__cta { padding: 12px 14px; }
+
+          .qh-nav-overlay {
+            position: fixed; inset: 64px 0 0 0;
+            background: rgba(0,0,0,0.3);
+            display: none;
+            z-index: 998;
+          }
+          .qh-nav-overlay.is-open { display: block; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .qh-navbar { transition: none; }
         }
       `}</style>
     </>
