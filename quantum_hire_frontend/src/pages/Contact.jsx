@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Faq from '../components/common/Faq';
+
 
 // PUBLIC_INTERFACE
 export default function Contact() {
@@ -21,39 +23,63 @@ export default function Contact() {
     }
   };
 
+  const faqs = [
+    { q: 'Do you support enterprise hiring?', a: 'Yes, we can run multi-cohort pilots and scale with your needs.' },
+    { q: 'How fast can we start?', a: 'We can typically start discovery within a week and align on cohorts quickly after scoping.' },
+  ];
+
   return (
     <main id="main" className="qh-page">
       <div className="qh-container">
         <h1>Contact Us</h1>
         <p style={{ color: 'var(--qh-accent)' }}>HR teams and companies can reach out via this form.</p>
 
-        <form className="qh-form" onSubmit={onSubmit} aria-labelledby="contact-title">
-          <div className="qh-field">
-            <label htmlFor="name">Name</label>
-            <input id="name" name="name" value={form.name} onChange={onChange} required />
-          </div>
-          <div className="qh-field">
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" value={form.email} onChange={onChange} required />
-          </div>
-          <div className="qh-field">
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="4" value={form.message} onChange={onChange} required />
-          </div>
-          <button type="submit" className="qh-btn qh-btn--primary" disabled={status.type === 'loading'}>
-            {status.type === 'loading' ? 'Sending…' : 'Send Message'}
-          </button>
-          {status.type !== 'idle' && (
-            <div
-              role={status.type === 'error' ? 'alert' : 'status'}
-              className={`qh-status qh-status--${status.type}`}
-              aria-live="polite"
-            >
-              {status.text}
+        <div className="qh-card" style={{ marginTop: 12 }}>
+          <form className="qh-form" onSubmit={onSubmit} aria-labelledby="contact-title">
+            <div className="qh-field">
+              <label htmlFor="name">Name</label>
+              <input id="name" name="name" value={form.name} onChange={onChange} required />
             </div>
-          )}
-        </form>
+            <div className="qh-field">
+              <label htmlFor="email">Email</label>
+              <input id="email" name="email" type="email" value={form.email} onChange={onChange} required />
+            </div>
+            <div className="qh-field">
+              <label htmlFor="message">Message</label>
+              <textarea id="message" name="message" rows="4" value={form.message} onChange={onChange} required />
+            </div>
+            <button type="submit" className="qh-btn qh-btn--primary" disabled={status.type === 'loading'}>
+              {status.type === 'loading' ? 'Sending…' : 'Send Message'}
+            </button>
+            {status.type !== 'idle' && (
+              <div
+                role={status.type === 'error' ? 'alert' : 'status'}
+                className={`qh-status qh-status--${status.type}`}
+                aria-live="polite"
+              >
+                {status.text}
+              </div>
+            )}
+          </form>
+        </div>
+
+        <section className="qh-section--tight" aria-label="Contact information" style={{ paddingTop: 18 }}>
+          <div className="qh-grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="qh-card">
+              <div className="qh-icon" aria-hidden="true">📧</div>
+              <div className="qh-value__title" style={{ fontWeight: 700, marginTop: 8 }}>Email</div>
+              <p className="qh-value__desc">hello@quantumhire.example</p>
+            </div>
+            <div className="qh-card">
+              <div className="qh-icon" aria-hidden="true">📞</div>
+              <div className="qh-value__title" style={{ fontWeight: 700, marginTop: 8 }}>Phone</div>
+              <p className="qh-value__desc">+1 (000) 000-0000</p>
+            </div>
+          </div>
+        </section>
       </div>
+
+      <Faq items={faqs} eyebrow="FAQ" title="Before you reach out" subtitle="Quick answers that may help you right away." />
 
       <style>{`
         :root {
